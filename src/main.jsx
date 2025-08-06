@@ -9,8 +9,8 @@ import TaskPage from './pages/taskPage.jsx'
 
 const router = createBrowserRouter([{
   path: "/",
-  element: <app />
-}
+  element: <App />
+},
 
 {
   path: "/task",

@@ -1,6 +1,13 @@
-import { ChevronRightIcon, TrashIcon } from "lucide-react";
+import { ChevronRightIcon, Dessert, TrashIcon } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
 
 function Tasks({ tasks, onTaskClick, onDelete }) {
+    const navegate = useNavigate();
+
+    function verDetlhes(task) {
+        navegate(`/task?title=${task.title}&description=${task.description} `)
+    }
+
     return (
 
 
@@ -13,7 +20,7 @@ function Tasks({ tasks, onTaskClick, onDelete }) {
                         {task.title}
 
                     </button>
-                    <button className="bg-slate-400 p-2 rounded-md text-white">
+                    <button onClick={() => verDetlhes(task)} className="bg-slate-400 p-2 rounded-md text-white">
                         <ChevronRightIcon />
                     </button>
                     <button onClick={() => onDelete(task.id)} className="bg-slate-400 p-2 rounded-md text-white">
