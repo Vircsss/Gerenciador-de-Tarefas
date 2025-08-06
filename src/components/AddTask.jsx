@@ -25,7 +25,15 @@ function AddTask({ onAdd }) {
             <button
                 type="button"
                 className="bg-slate-500 text-white px-4 py-2 rounded-md font-medium"
-                onClick={() => onAdd(title, description)}
+                onClick={() => {
+                    if (!description.trim() || !title.trim()){
+                        return alert("Preencha corretamente")
+                    }
+
+                    onAdd(title, description)
+                    setDescription("");
+                    setTittle("");
+                }}
             >
                 adicionar
             </button>
